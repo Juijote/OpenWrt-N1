@@ -17,24 +17,24 @@ on:
       - master
     paths:
       - '.config'
-#  schedule:
-#    - cron: 0 8 * * 5
-#  watch:
-#    types: started
+  schedule:
+    - cron: 0 0 * * *     #每天0点启动
+  watch:
+    types: [started]  #点击收藏时启动
 
-env:
-  REPO_URL: https://github.com/coolsnowwolf/lede
-  REPO_BRANCH: master
-  FEEDS_CONF: feeds.conf.default
-  CONFIG_FILE: .config
-  DIY_P1_SH: diy-part1.sh
-  DIY_P2_SH: diy-part2.sh
-  SSH_ACTIONS: false
-  UPLOAD_BIN_DIR: false
-  UPLOAD_FIRMWARE: true
-  UPLOAD_COWTRANSFER: false
-  UPLOAD_WETRANSFER: false
-  TZ: Asia/Shanghai
+env: 自定义环境变量与功能
+  REPO_URL: https://github.com/coolsnowwolf/lede #源码仓库地址
+  REPO_BRANCH: master #源码分支
+  FEEDS_CONF: feeds.conf.default #自定义feeds.conf.default文件名
+  CONFIG_FILE: .config #自定义.config文件名
+  DIY_P1_SH: diy-part1.sh #自定义diy-part1.sh文件名
+  DIY_P2_SH: diy-part2.sh #自定义diy-part1.sh文件名
+  SSH_ACTIONS: false #SSH 连接 Actions 功能。默认false
+  UPLOAD_BIN_DIR: false #上传 bin 目录。即包含所有 ipk 文件和固件的目录。默认false
+  UPLOAD_FIRMWARE: true #上传固件目录。默认true
+  UPLOAD_COWTRANSFER: false #上传固件到奶牛快传。默认false
+  UPLOAD_WETRANSFER: false #上传固件到 WeTransfer 。默认false
+  TZ: Asia/Shanghai #时区设置
 
 jobs:
   build:
